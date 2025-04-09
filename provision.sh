@@ -77,8 +77,13 @@ install_file() {
         return 1
     fi
 
-    if ! install -D -b -m 0644 -g staff "$src" "$dest"; then
-        echo "Error installing file" >&2
+    if ! mkdir -p "$(dirname $dest)"; then
+        echo "Error creating directory" >&2
+        return 1
+    fi
+
+    if ! cp "$src" "$dest"; then
+        echo "Error copying file" >&2
         return 1
     fi
 
@@ -91,12 +96,12 @@ fi
 
 set -e
 
-for cmd in kitty go uv node; do
+for cmd in cmake kitty go uv node; do
     brew_conditional_install $cmd
 done
 brew_conditional_install http httpie
 brew_conditional_install rg ripgrep
-for cask in Obsidian Firefox Rectangle Zed; do
+for cask in Firefox Obsidian Rectangle LinearMouse Docker Zed; do
     brew_conditional_install_cask $cask
 done
 brew_conditional_install_cask "Affinity Photo 2" affinity-photo
@@ -115,6 +120,6 @@ git_conditional_clone https://github.com/dharmab/ck-base16-shell.git ~/.config/b
 
 install_file kitty.conf ~/.config/kitty/kitty.conf
 install_file vimrc ~/.vimrc
-install_file zed.json ~/.config/zed/config.json
+install_file zed.json ~/.config/zed/settings.json
 install_file zshrc ~/.zshrc
 vim +PlugInstall +qall!
