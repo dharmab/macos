@@ -116,6 +116,7 @@ brew_install \
 
 git_config init.defaultBranch main
 git_config pull.rebase true
+git_config push.autoSetupRemote true
 git_conditional_clone https://github.com/dharmab/ck-base16-shell.git ~/.config/base16-shell
 
 install_file kitty.conf ~/.config/kitty/kitty.conf
