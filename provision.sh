@@ -96,9 +96,10 @@ fi
 
 set -e
 
-for cmd in cmake kitty go uv bun; do
+for cmd in cmake kitty go uv; do
     brew_conditional_install $cmd
 done
+brew_conditional_install bun oven-sh/bun/bun
 brew_conditional_install http httpie
 brew_conditional_install rg ripgrep
 for cask in Firefox Rectangle LinearMouse Zed ghostty; do
