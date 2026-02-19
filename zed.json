@@ -1,15 +1,18 @@
 {
-  "assistant": {
+  "agent": {
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-latest"
+      "provider": "copilot_chat",
+      "model": "claude-opus-4.6",
     },
-    "version": "2",
-    "enable_experimental_live_diffs": true
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "edit_predictions": {
+    "provider": "copilot",
   },
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "vim_mode": true,
   "ui_font_size": 16,
@@ -17,25 +20,22 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Base16 Default Dark"
+    "dark": "Base16 Default Dark",
   },
   "vim": {
-    "use_smartcase_find": true
+    "use_smartcase_find": true,
   },
   "git": {
     "inline_blame": {
-      "enabled": false
-    }
+      "enabled": false,
+    },
   },
-  "buffer_font_family": "Inconsolata for Powerline",
-  "env": {
-    "EDITOR": "zed"
-  },
+  "buffer_font_family": "Inconsolata",
   "lsp": {
     "gopls": {
       "initialization_options": {
-        "completeFunctionCalls": false
-      }
-    }
-  }
+        "completeFunctionCalls": false,
+      },
+    },
+  },
 }

@@ -26,9 +26,6 @@ Plug 'dense-analysis/ale'
 " YouCompleteMe completions
 Plug 'ycm-core/YouCompleteMe', {'do': './install.py --clang-completer --go-completer'}
 
-" GitHub Copilot
-Plug 'github/copilot.vim'
-
 " File tree
 " Use :NERDTree to open the tree
 Plug 'preservim/nerdtree'
