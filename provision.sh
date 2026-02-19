@@ -77,7 +77,7 @@ install_file() {
         return 1
     fi
 
-    if ! mkdir -p "$(dirname $dest)"; then
+    if ! mkdir -p "$(dirname "$dest")"; then
         echo "Error creating directory" >&2
         return 1
     fi
@@ -96,12 +96,12 @@ fi
 
 set -e
 
-for cmd in cmake kitty go uv node; do
+for cmd in cmake kitty go uv bun; do
     brew_conditional_install $cmd
 done
 brew_conditional_install http httpie
 brew_conditional_install rg ripgrep
-for cask in Firefox Obsidian Rectangle LinearMouse Docker Zed; do
+for cask in Firefox Rectangle LinearMouse Zed ghostty; do
     brew_conditional_install_cask $cask
 done
 brew_conditional_install_cask "Affinity Photo 2" affinity-photo
@@ -119,6 +119,7 @@ git_config pull.rebase true
 git_config push.autoSetupRemote true
 git_conditional_clone https://github.com/dharmab/ck-base16-shell.git ~/.config/base16-shell
 
+install_file ghostty.conf ~/.config/ghostty/config
 install_file kitty.conf ~/.config/kitty/kitty.conf
 install_file vimrc ~/.vimrc
 install_file zed.json ~/.config/zed/settings.json
