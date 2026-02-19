@@ -96,7 +96,7 @@ fi
 
 set -e
 
-for cmd in cmake kitty go uv; do
+for cmd in cmake go uv; do
     brew_conditional_install $cmd
 done
 brew_conditional_install bun oven-sh/bun/bun
@@ -121,7 +121,6 @@ git_config push.autoSetupRemote true
 git_conditional_clone https://github.com/dharmab/ck-base16-shell.git ~/.config/base16-shell
 
 install_file ghostty.conf ~/.config/ghostty/config
-install_file kitty.conf ~/.config/kitty/kitty.conf
 install_file vimrc ~/.vimrc
 install_file zed.json ~/.config/zed/settings.json
 install_file zshrc ~/.zshrc
